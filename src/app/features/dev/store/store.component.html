@@ -1,0 +1,19 @@
+<app-window [title]="'dev-store' | transloco" icon="fa-boxes" [loading]="loading">
+	<div>
+		<app-card>
+			<div header>Token</div>
+			<div body>
+				<pre class="wrap">{{token}}</pre>
+				<app-loading *ngIf="loadingToken"></app-loading>
+			</div>
+		</app-card>
+		<hr/>
+		<app-card>
+			<div header>User</div>
+			<div body>
+				<pre class="wrap">{{user | json}}</pre>
+				<app-loading *ngIf="loadingUser"></app-loading>
+			</div>
+		</app-card>
+	</div>
+</app-window>

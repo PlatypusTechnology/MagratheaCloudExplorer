@@ -1,0 +1,57 @@
+# This is an example Starter pipeline configuration
+# Use a skeleton to build, test and deploy using manual and parallel steps
+# -----
+# You can specify a custom docker image from Docker Hub as your build environment.
+image: trion/ng-cli-karma
+
+pipelines:
+  branches:
+    master:
+      - step:
+          name: Installation
+          caches:
+            - node
+          script:
+            - npm install
+          artifacts:
+            - node_modules/** # Save modules for next steps
+      - step:
+          name: Build
+          script:
+            - npm run build:prod
+          artifacts:
+            - dist/** # Save build for next steps
+      - step:
+          name: Deploy
+          script:
+            - pipe: atlassian/ssh-run:0.2.4
+              variables:
+                SSH_USER: $USER
+                SERVER: $SERVER
+                COMMAND: 'rm -rf /home/animateka/$REMOTE_PROD/* && echo "deployed $REMOTE_PROD" >> /home/animateka/deploys.txt'
+                DEBUG: 'true'
+            - pipe: atlassian/sftp-deploy:0.5.4
+              variables:
+                USER: $USER
+                SERVER: $SERVER
+                REMOTE_PATH: '/home/animateka/$REMOTE_PROD'
+                LOCAL_PATH: 'dist/animateka/browser/*'
+                DEBUG: 'true'
+    staging:
+      - step:
+          name: Test SSH
+          script:
+            - pipe: atlassian/ssh-run:0.2.4
+              variables:
+                SSH_USER: $USER
+                SERVER: $SERVER
+                COMMAND: 'rm -rf /home/animateka/$REMOTE_STAGING/* && echo "deployed $REMOTE_STAGING" >> /home/animateka/deploys.txt'
+                DEBUG: 'true'
+            - pipe: atlassian/sftp-deploy:0.5.4
+              variables:
+                USER: $USER
+                SERVER: $SERVER
+                REMOTE_PATH: '/home/animateka/$REMOTE_STAGING'
+                LOCAL_PATH: 'src/environments/*'
+                DEBUG: 'true'
+

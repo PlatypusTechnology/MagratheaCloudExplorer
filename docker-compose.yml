@@ -1,0 +1,14 @@
+## as: https://github.com/docker/awesome-compose/tree/master/angular
+
+services:
+  web:
+    image: animateka_build_image
+    container_name: animateka_build
+    build:
+      context: .
+      target: builder
+    ports:
+      - 4200:4200
+    volumes:
+      - .:/project
+      - /project/node_modules

@@ -1,0 +1,143 @@
+{
+	"title": "Animateka",
+	"dev-store": "Store",
+
+	"error-general": "An error happened!",
+
+	"date-format": "yyyy-MM-dd H:mm:ss a",
+	"save": "Save",
+	"cancel": "Cancel",
+	"loading": "Loading...",
+	"load-more": "Load more",
+	"search": "Search",
+	"save-success-general": "Data successfully saved!",
+	"save-success": "{{object}} saved successfully!",
+	"save-error": "Error saving {{object}}",
+	"select-placeholder": "Select {{item}}",
+	"validation-error": "Error on form validation",
+	"edit": "Editing {{name}}",
+	"new": "New {{object}}",
+
+	"address": "Address",
+	"category": "category",
+	"comments": "Comments",
+	"geotag": "Geotag",
+	"id-title": "#ID",
+	"name": "Name",
+	"sex": "Sex",
+	"status": "Status",
+
+	"errors": {
+		"unknown-error": "Unknown Error!",
+		"email-required": "Email is required",
+		"email-invalid": "Invalid email address",
+		"password-required": "Password is required",
+		"login-error": "Login error!"
+	},
+
+	"login": {
+		"email": "E-mail",
+		"password": "Password",
+		"sign-in": "Sign In",
+		"success": "Logged In!"
+	},
+
+	"my-account": {
+		"title": "My Account",
+		"change-password": "Change Password",
+		"password": "Password",
+		"password-check": "Confirm Password",
+		"generate-password": "Suggest Password"
+	},
+
+	"users": {
+		"list-title": "Registered users",
+		"edit": "Edting User {{name}}",
+		"new": "New User",
+		"title-id_display": "ID#",
+		"title-name": "Name",
+		"title-email": "E-mail",
+		"title-roleName": "Role",
+		"title-password": "Password",
+		"title-active": "Active",
+		"title-phone": "Phone number",
+		"title-language": "Language",
+		"title-last_login": "Last Login",
+		"btn-gen-password": "Generate Password"
+	},
+	"locations": {
+		"title": "Location",
+		"list-title": "Locations",
+		"edit": "Editing Location {{name}}",
+		"new": "New Location",
+		"title-id_display": "ID#",
+		"title-name": "Name",
+		"title-geotag": "Geotag",
+		"title-comments": "Comments"
+	},
+	"houses": {
+		"title": "House",
+		"list-title": "Houses",
+		"edit": "Editing House {{name}}",
+		"new": "New House",
+		"built_in": "Built in...",
+		"category": "Category",
+		"main_use": "Main use"
+	},
+	"species": {
+		"title": "Species",
+		"list-title": "Species",
+		"edit": "Edting specie {{name}}",
+		"new": "New Specie",
+		"name": "Name",
+		"bio_name": "Biological name",
+		"origin": "Origin",
+		"extinction_short": "Extinction",
+		"extinction": "Extinction Assessment"
+	},
+	"animals": {
+		"title": "Animals",
+		"list-title": "Animals",
+		"edit": "Edting animal {{name}}",
+		"new": "New Animal",
+		"animal-select": "Animal",
+		"name": "Name",
+		"house-group": "Location",
+		"parents-group": "Parents",
+		"origin-group": "Origin",
+		"death-group": "Death",
+		"father": "Father",
+		"mother": "Mother",
+		"registration": "Registration",
+		"admittance_date": "Admittance date",
+		"deathdate": "Death date",
+		"birthdate": "Birth date",
+		"birth_country": "Birth Country",
+		"birth_location": "Birth Location"
+	},
+
+	"diets": {
+		"title": "Diets",
+		"list-title": "Current diet plans",
+		"new": "New Diet Plan",
+		"edit": "Edting Diet...",
+		"name": "Title",
+		"description": "Short Description",
+		"animal": "Animal",
+		"animal-select-placeholder": "Select an animal",
+		"start": "Start Date",
+		"end": "End Date",
+		"document": "Document",
+		"meal_plan": "Meal Plan"
+	},
+
+	"menu": {
+		"home": "Dashboard",
+		"users": "Users",
+		"locations": "Locations",
+		"animals": "Animals",
+		"diet": "Diet plans",
+		"dev": "Development Area",
+		"logout": "Logout"
+	}
+}
