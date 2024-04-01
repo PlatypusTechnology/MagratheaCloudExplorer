@@ -1,9 +1,10 @@
 import { Component, OnInit, ViewEncapsulation } from '@angular/core';
 import { AppState } from '@app/app.state';
+import { iKey } from '@app/features/keys/key.interface';
 import { AuthService } from '@app/services/auth/authentication.service';
 import { NavigationService } from '@app/services/navigation/navigation.service';
+import { Toaster } from '@app/services/toaster/toaster.service';
 import { SharedModule } from '@app/shared/shared.module';
-import { TranslocoService } from '@ngneat/transloco';
 import { iStoreUser } from '@services/store/store.interface';
 import { Store } from '@services/store/store.service';
 
@@ -18,29 +19,32 @@ import { Store } from '@services/store/store.service';
 
 export class NavbarComponent implements OnInit {
 	public isMenuCollapsed: boolean = false;
-	public userTag: string = "...";
+	public navTitle: string = "...";
 	public user: iStoreUser|null = null;
+	public keyVal: string = "-";
+	public keyFolder: string = "";
 
 	constructor(
 		private _state: AppState,
 		private Store: Store,
+		private toaster: Toaster,
 		private auth: AuthService,
-		private translation: TranslocoService,
 		private nav: NavigationService,
 	) {
 	}
 
 	ngOnInit(): void {
 		this.loadUser();
-		this.initMenuToggle();
+		this.loadKey();
+		this.watchKey();
 	}
 
-	public initMenuToggle() {
-		this._state.subscribe("menu.isCollapsed",
-			(isCollapsed: boolean) => {
-				this.isMenuCollapsed = isCollapsed;
-			}
-		);
+	public watchKey() {
+		this._state.subscribe("key.change", (key: iKey) => {
+			this.keyVal = key.val;
+			this.keyFolder = key.folder;
+			this.navTitle = key.folder;
+		});
 	}
 
 	public toggleMenu() {
@@ -51,11 +55,40 @@ export class NavbarComponent implements OnInit {
 	public async loadUser() {
 		this.user = await this.Store.getLoggedUser();
 		let tag = this.user?.name ?? this.user?.email;
-		this.userTag = tag ?? "...";
+	}
+
+	public async loadKey() {
+		this.keyVal = await this.Store.get("key-val");
+		this.keyFolder = await this.Store.get("key-folder");
+		this.navTitle = this.keyFolder;
+	}
+
+	public copyKey() {
+		let val = this.keyVal;
+		const selBox = document.createElement('textarea');
+		selBox.style.position = 'fixed';
+		selBox.style.left = '0';
+		selBox.style.top = '0';
+		selBox.style.opacity = '0';
+		selBox.value = val;
+		document.body.appendChild(selBox);
+		selBox.focus();
+		selBox.select();
+		document.execCommand('copy');
+		document.body.removeChild(selBox);
+		this.toaster.success(`key [${val}] copied to clipboard`);
 	}
 
 	public navMyData() {
 		this.nav.myAccount();
+	}
+
+	public navDev() {
+		this.nav.goDev();
+	}
+
+	public navKeys() {
+		this.nav.keyHome();
 	}
 
 	public logout() {

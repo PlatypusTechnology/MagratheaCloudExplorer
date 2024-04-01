@@ -2,7 +2,6 @@ import { Component, OnInit, ViewEncapsulation  } from '@angular/core';
 
 import { CommonModule, Location } from '@angular/common';
 import { BreadcrumbComponent } from '@app/shared/components/breadcrumb/breadcrumb.component';
-import { MenuComponent } from "@app/shared/components/menu/menu.component";
 import { NavbarComponent } from '@app/shared/components/nav-bar/navbar.component';
 import { RouterOutlet } from '@angular/router';
 import { AppState } from '@app/app.state';
@@ -11,7 +10,6 @@ const imports = [
 	BreadcrumbComponent,
 	CommonModule,
 	RouterOutlet,
-	MenuComponent,
 	NavbarComponent,
 ];
 const providers = [ AppState ];
@@ -45,10 +43,6 @@ export class MainComponent implements OnInit {
 	public getCurrentPageName():void{       
 		let url = this._location.path();
 		let hash = (window.location.hash) ? '#' : '';    
-	}
-
-	public hideMenu():void{
-		this._state.emit('menu.isCollapsed', true);    
 	}
 
 	public ngAfterViewInit(): void {

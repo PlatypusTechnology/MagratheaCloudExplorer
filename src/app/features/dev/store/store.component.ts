@@ -2,11 +2,12 @@ import { Component, OnInit } from '@angular/core';
 import { Store } from '@app/services/store/store.service';
 import { SharedModule } from '@app/shared/shared.module';
 import { stringify } from 'querystring';
+import { StoreCardComponent } from '../store-card/store-card.component';
 
 @Component({
   selector: 'app-dev-store',
   standalone: true,
-  imports: [ SharedModule ],
+  imports: [ SharedModule, StoreCardComponent ],
   templateUrl: './store.component.html',
   styleUrl: './store.component.scss'
 })
@@ -18,6 +19,9 @@ export class StoreComponent implements OnInit {
 	public token: string = "...";
 	public user: any = "...";
 
+	public shelves: string[] = ["key-val", "key-folder"];
+	public values: any = {};
+
 	constructor(
 		private Store: Store,
 	) {
@@ -27,7 +31,8 @@ export class StoreComponent implements OnInit {
 		this.loading = true;
 		Promise.all([
 			this.loadToken(),
-			this.loadUser(),	
+			this.loadUser(),
+			this.loadShelf(),
 		]).then(() => this.loading = false);
 	}
 
@@ -48,6 +53,13 @@ export class StoreComponent implements OnInit {
 				this.user = u;
 				this.loadingUser = false;
 			});
+	}
+
+	public loadShelf() {
+		this.shelves.forEach(item => {
+			this.Store.get(item)
+				.then(rs => this.values[item] = rs);
+		});
 	}
 
 }

@@ -1,0 +1,53 @@
+<div class="container-fluid">
+	<div class="row">
+		<div class="col-sm-12">
+
+			<app-window
+			[loading]="loading"
+			icon="fa-key"
+			[showClose]="false"
+			[collapsable]="false"
+			[title]="'new' | transloco: { object: 'Key' } ">
+		
+			<form [formGroup]="form!" [ngClass]="fs.formClass(form!)">
+				<div class="row">
+					<div class="col-sm-8">
+						<app-input
+							id="media_folder"
+							type="text"
+							formControlName="media_folder"
+							label="keys.folder"
+							[required]="true"
+						></app-input>
+					</div>
+					<div class="col-sm-4 label-margin">
+						<app-button
+							type="save"
+							(action)="save();"
+							[loading]="loading"
+							></app-button>
+					</div>
+		
+				</div>
+			</form>
+		
+		</app-window>
+		
+
+		</div>
+	</div>
+
+	<div class="row">
+		<div class="col-sm-3">
+			<app-button
+				(action)="goBack()"
+				type="outline-primary"
+				icon="fa-arrow-left"
+				[caption]="'back' | transloco"
+			></app-button>
+		</div>
+		<div class="col-sm-9"></div>
+	</div>
+	
+</div>
+<br/>

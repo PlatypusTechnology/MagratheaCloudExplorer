@@ -1,19 +1,23 @@
 <app-window [title]="'dev-store' | transloco" icon="fa-boxes" [loading]="loading">
 	<div>
-		<app-card>
-			<div header>Token</div>
-			<div body>
-				<pre class="wrap">{{token}}</pre>
-				<app-loading *ngIf="loadingToken"></app-loading>
-			</div>
-		</app-card>
+		<app-store-card
+			title="Token"
+			[content]="token"
+			[loading]="loadingToken"
+		></app-store-card>
 		<hr/>
-		<app-card>
-			<div header>User</div>
-			<div body>
-				<pre class="wrap">{{user | json}}</pre>
-				<app-loading *ngIf="loadingUser"></app-loading>
-			</div>
-		</app-card>
+		<app-store-card
+			title="User"
+			[content]="user | json"
+			[loading]="loadingUser"
+		></app-store-card>
+		<hr/>
+		<div *ngFor="let s of shelves">
+			<app-store-card
+				[title]="s"
+				[content]="values[s]"
+				[loading]="loading"
+			></app-store-card>
+		</div>
 	</div>
 </app-window>

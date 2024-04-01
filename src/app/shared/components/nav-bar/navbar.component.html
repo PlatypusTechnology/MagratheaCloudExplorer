@@ -1,26 +1,33 @@
 <nav class="nav az-navbar fixed-top">
-	<a class="navbar-brand" routerLink="/" *ngIf="!isMenuCollapsed">
-		<!--img src="assets/img/logo/az_logo_full.png" alt="" class="d-md-block d-none">
-		<img src="assets/img/logo/az_logo.png" alt="" class="d-md-none"-->
+	<a class="navbar-brand">
+		<img src="assets/images/logo_top.png" alt="" class="d-md-block d-none">
+		<img src="assets/images/logo_top.png" alt="" class="d-md-none">
 	</a>
-	<div id="lines" class="transition" (click)="toggleMenu()"></div>
 
 	<ul class="nav right-section">
 		<li class="nav-item">
 			<div class="dropdown float-right user-menu">
 				<a class="dropdown-toggle user-link" data-toggle="dropdown" role="button" aria-expanded="false">
-					<api-image [id]="user?.avatar_id" extraClass="img-circle user-img"></api-image>
-					<span class="d-lg-inline d-none">{{userTag}}</span>
+					<span class="d-lg-inline d-none">{{ navTitle }}</span>
+					<i class="fa fa-sort-down nav-drop"></i>
 				</a>
 
 				<ul class="dropdown-menu">
 					<li class="user-info">
-						<api-image [id]="user?.avatar_id" extraClass="img-circle user-img"></api-image>
 						<p>
-							{{user?.roleName}} - {{user?.name}}
 							<small>{{user?.email}}</small>
 						</p>
 					</li>
+					<li class="key-info" *ngIf="keyVal" (click)="copyKey();">
+						<p>
+							{{ keyFolder }}
+							<small>{{ keyVal }}</small>
+						</p>
+					</li>
+					<div class="dropdown-divider"></div>
+					<a class="dropdown-item" (click)="navKeys();"><i class="fa fa-key"></i>Keys</a>
+					<div class="dropdown-divider"></div>
+					<a class="dropdown-item" (click)="navDev();"><i class="fa fa-code"></i>Dev Area</a>
 					<a class="dropdown-item" (click)="navMyData();"><i class="fa fa-cog"></i>My Account</a>
 					<div class="dropdown-divider"></div>
 					<a class="dropdown-item" (click)="logout();"><i class="fa fa-power-off"></i>Log out</a>

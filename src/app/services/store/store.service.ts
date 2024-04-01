@@ -59,15 +59,6 @@ export class Store implements iStore {
     localStorage.clear();
   }
 
-
-  public setClient(client: string): void {
-    this.set("client", client);
-  }
-  public getClient(): Promise<any> | null {
-    return this.get("client") || null;
-  }
-
-
   public setToken(token: string): void {
     this.set("token", token);
   }

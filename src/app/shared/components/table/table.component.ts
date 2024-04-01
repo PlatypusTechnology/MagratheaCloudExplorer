@@ -11,6 +11,11 @@ import { SharedModule } from '@app/shared/shared.module';
 })
 export class TableComponent implements OnChanges {
 
+	///	this.keys = ["id", "title", "description"];
+	/// this.titles["id"] = "#ID";
+	/// this.titles["title"] = "Nome";
+	/// this.titles["description"] = this.transloco.translate("description");
+
 	@Input() items: any[] = [];
 	@Input() titles: any[] = [];
 	@Input() keys: any[] = [];

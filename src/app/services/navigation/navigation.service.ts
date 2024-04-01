@@ -18,6 +18,10 @@ export class NavigationService {
 		this.router.navigate([this.pagesUrl]);
 	}
 
+	public goDev(): void {
+		this.router.navigate([this.pagesUrl, "dev"]);
+	}
+
 	public myAccount(): void {
 		this.router.navigate([this.pagesUrl, "my-account"]);
 	}
@@ -35,56 +39,14 @@ export class NavigationService {
 		this.router.navigate([this.pagesUrl, 'users', 'new']);
 	}
 
-	public locationHome(): void {
-		this.router.navigate([this.pagesUrl, "locations"]);
+	public keyHome(): void {
+		this.router.navigate([this.pagesUrl, "keys"]);
 	}
-	public locationNew(): void {
-		this.router.navigate([this.pagesUrl, "locations", "new"]);
+	public keyView(keyId: string): void {
+		this.router.navigate([this.pagesUrl, "keys", "view", keyId]);
 	}
-	public locationView(id: string): void {
-		this.router.navigate([this.pagesUrl, "locations", "view", id]);
-	}
-
-	public houseNew(): void {
-		this.router.navigate([this.pagesUrl, "houses", "new"]);
-	}
-	public houseView(id: string): void {
-		this.router.navigate([this.pagesUrl, "houses", "view", id]);
-	}
-
-	public animalsHome(): void {
-		this.router.navigate([this.pagesUrl, "animals"]);
-	}
-	public animalsList(): void {
-		this.router.navigate([this.pagesUrl, "animals", "list"]);
-	}
-	public animalsForm(id: string): void {
-		this.router.navigate([this.pagesUrl, "aniamls", "form", id]);
-	}
-	public animalsNew(): void {
-		this.router.navigate([this.pagesUrl, "animals", "new"]);
-	}
-	public speciesList(): void {
-		this.router.navigate([this.pagesUrl, "animals", "species", "list"]);
-	}
-	public specieNew(): void {
-		this.router.navigate([this.pagesUrl, "animals", "species", "new"]);
-	}
-	public specieView(id: string): void {
-		this.router.navigate([this.pagesUrl, "animals", "species", "view", id]);
-	}
-
-	public dietsHome(): void {
-		this.router.navigate([this.pagesUrl, "diets"]);
-	}
-	public dietsList(): void {
-		this.router.navigate([this.pagesUrl, "diets", "list"]);
-	}
-	public dietForm(id: string): void {
-		this.router.navigate([this.pagesUrl, "diets", "form", id]);
-	}
-	public dietNew(): void {
-		this.router.navigate([this.pagesUrl, "diets", "new"]);
+	public keyNew(): void {
+		this.router.navigate([this.pagesUrl, "keys", "new"]);
 	}
 
 }

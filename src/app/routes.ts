@@ -5,6 +5,7 @@ import { IsAdmin, IsLogged, IsManager } from './services/auth/auth-guard.service
 
 const devRoute = {
 	path: 'dev',
+	canActivate: [IsLogged],
 	loadChildren: () => import("./features/dev/dev.module").then(m => m.DevModule),
 	data: { breadcrumb: "dev" },
 };
@@ -40,13 +41,16 @@ export const routes: Routes = [
 				path: 'my-account',
 				canActivate: [IsLogged],
 				loadChildren: () => import("./features/my-account/my-account.module").then(m => m.MyAccountModule),
-				data: { breadcrumb: "my account" },
 			},
 			{
 				path: 'users',
 				canActivate: [IsAdmin],
 				loadChildren: () => import("./features/users/users.module").then(m => m.UsersModule),
-				data: { breadcrumb: "users" }
+			},
+			{
+				path: 'keys',
+				canActivate: [IsLogged],
+				loadChildren: () => import("./features/keys/keys.module").then(m => m.KeysModule),
 			},
 			devRoute,
 		],
