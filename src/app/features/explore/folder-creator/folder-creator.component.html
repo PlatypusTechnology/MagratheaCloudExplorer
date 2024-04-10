@@ -1,0 +1,30 @@
+<app-window
+	#window
+	[loading]="loading"
+	icon="fa-folder-plus"
+	[showClose]="true"
+	[collapsable]="true"
+	[title]="'explorer.create-folder' | transloco">
+	<div class="row">
+		<div class="col-sm-12">
+			(#{{ folderId }}) &commat; {{ location }}
+		</div>
+		<div class="col-sm-12">
+			<app-input
+				id="folder-name"
+				translate="explorer.folder-name"
+				[required]="true"
+				[error]="error"
+				[(ngModel)]="name"
+			></app-input>
+		</div>
+		<div class="col-sm-12">
+			<app-button
+				translate="explorer.create-folder-btn"
+				icon="fa-folder-plus"
+				(action)="create()"
+			></app-button>
+		</div>
+	</div>
+
+</app-window>

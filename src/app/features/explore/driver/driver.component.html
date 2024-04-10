@@ -1,0 +1,29 @@
+<app-window
+	[loading]="loading"
+	icon="fa-hdd"
+	[showClose]="false"
+	[collapsable]="false"
+	[title]="title">
+	<span actions>
+		<a class="transition" (click)="refresh()">
+			<i class="fa fa-refresh"></i></a>
+	</span>
+	<div class="row">
+		<div class="col-sm-12">
+			<app-navigation-row
+				#navigation
+				[loading]="loading"
+				(callFolder)="navigateBackToFolder($event)"
+			></app-navigation-row>
+			<app-item-row
+				*ngFor="let item of data"
+				[item]="item"
+				(rowClick)="itemClick($event)"
+			></app-item-row>
+			<app-action-row
+				[folder]="folderId"
+			></app-action-row>
+		</div>
+	</div>
+
+</app-window>

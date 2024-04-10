@@ -36,6 +36,9 @@ export class ErrorHandler {
 			case 4011:
 				this.Toaster.error("user/password incorrect");
 				break;
+			case 500:
+				this.Toaster.error(data.error);
+				break;
 			case 2005: // invalid object
 				// take care of the error by itself
 				break;

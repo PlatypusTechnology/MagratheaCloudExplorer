@@ -1,0 +1,42 @@
+.navigation-row {
+	border-bottom: 1px solid #888;
+	margin-bottom: 20px;
+	height: 40px;
+}
+
+app-loading {
+	margin: -20px 0;
+	float: right;
+}
+
+.back-action {
+	border-right: 1px solid #888;
+	text-align: center;
+	font-size: 20px;
+
+	.back-btn {
+		cursor: pointer;
+		padding: 5px;
+		border-radius: 20px;
+		background-color: #EEE;
+	}
+}
+
+.crumb-div {
+	display: inline-block;
+	.folder-crumb {
+		font-size: 16px;
+		&.folder-clickable {
+			cursor: pointer;
+		}
+		&.folder-last {
+			cursor: default;
+			font-weight: bold;
+		}
+	}
+	.sep {
+		font-size: 20px;
+		margin: 0 10px;
+	}
+}
+

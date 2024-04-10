@@ -9,7 +9,7 @@ export const routes: Routes = [
 		component: KeysListComponent,
 	},
 	{
-		path: 'view/:id',
+		path: 'view',
 		component: KeyViewComponent,
 	},
 	{

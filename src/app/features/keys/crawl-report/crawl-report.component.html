@@ -1,0 +1,22 @@
+<app-window
+	#reportwindow
+	[loading]="loading"
+	icon="fa-clipboard-list"
+	[showClose]="true"
+	[collapsable]="true"
+	[title]="'keys.crawl-log' | transloco">
+	<div class="row">
+		<div class="col-sm-12">
+			<app-input
+				id="crawl.execution"
+				type="disabled"
+				placeholder="execution date"
+				translate="keys.crawl"
+				[value]="executed"
+			></app-input>
+		</div>
+		<div class="col-sm-12">
+			<pre class="code" *ngIf="report">{{report | json}}</pre>
+		</div>
+	</div>
+</app-window>

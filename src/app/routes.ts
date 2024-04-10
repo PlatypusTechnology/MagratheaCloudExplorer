@@ -1,4 +1,4 @@
-import { Routes } from '@angular/router';
+import { Route, Routes } from '@angular/router';
 import { ErrorComponent } from './shared/error/error.component';
 import { MainComponent } from './shared/layout/main.component';
 import { IsAdmin, IsLogged, IsManager } from './services/auth/auth-guard.service';
@@ -7,7 +7,11 @@ const devRoute = {
 	path: 'dev',
 	canActivate: [IsLogged],
 	loadChildren: () => import("./features/dev/dev.module").then(m => m.DevModule),
-	data: { breadcrumb: "dev" },
+};
+const exploreRoute: Route = {
+	path: 'explore',
+	canActivate: [IsLogged],
+	loadChildren: () => import("./features/explore/explore.module").then(m => m.ExploreModule),
 };
 const loginRoute =	{
 	path: 'login',
@@ -30,9 +34,10 @@ export const routes: Routes = [
 		children: [
 			{
 				path: '',
-				redirectTo: 'home',
+				redirectTo: 'explore',
 				pathMatch: 'full'
 			},
+			exploreRoute,
 			{
 				path: 'home',
 				loadChildren: () => import("./features/home/home.module").then(m => m.HomeModule),

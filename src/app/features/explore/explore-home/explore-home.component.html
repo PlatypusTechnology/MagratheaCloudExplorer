@@ -1,0 +1,21 @@
+<div class="container-fluid">
+	<div class="row">
+		<div class="col-sm-{{ showSideBox ? '8' : '12' }}">
+			<app-driver></app-driver>
+		</div>
+		<div class="col-sm-4" *ngIf="showSideBox">
+			<app-folder-creator
+				#folderCreator
+				*ngIf="showNewFolderBox"
+			></app-folder-creator>
+			<app-file-uploader
+				#fileUploader
+				*ngIf="showUploadBox"
+			></app-file-uploader>
+			<app-detail-box
+				#detailBox
+				[item]="item"
+			></app-detail-box>
+		</div>
+	</div>
+</div>

@@ -1,0 +1,9 @@
+<div class="row item-row" (click)="rowAction()">
+	<div class="col-sm-10 item-name">
+		<i [class]="getIcon()"></i>
+		{{ item?.name }}
+	</div>
+	<div class="col-sm-2 item-size">
+		<span class="size" *ngIf="!isFolder()">{{ getSize() }}</span>
+	</div>
+</div>

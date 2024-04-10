@@ -1,6 +1,7 @@
 <div class="form-group" *ngIf="id">
 	<label for="{{ id }}">
-		{{ label | transloco }}
+		<span *ngIf="label">{{ label }}</span>
+		<span *ngIf="translate">{{ translate | transloco }}</span>
 		<span class="required" *ngIf="required">*</span>
 	</label>
 	<input type="{{type}}" 

@@ -1,0 +1,32 @@
+<app-window
+	#window
+	[loading]="loading"
+	icon="fa-file-upload"
+	[showClose]="true"
+	[collapsable]="true"
+	[title]="'explorer.upload-file' | transloco">
+	<div class="row">
+		<div class="col-sm-12">
+			<p-fileUpload
+				#upload
+				[url]="uploadUrl"
+				(onBeforeUpload)="preparePackage($event)"
+				(onUpload)="uploadDone($event);"
+				name="files[]"
+				[multiple]="false"
+				[customUpload]="false"
+				(onSelect)="fileSelect = true" (onRemove)="fileSelect = false"
+				>
+				<ng-template pTemplate="content">
+					<ul *ngIf="uploadedFiles.length">
+						<li *ngFor="let file of uploadedFiles">{{ file['name'] }}</li>
+					</ul>
+					<div *ngIf="!fileSelect" class="upload-icon">
+						<i class="fa fa-cloud-upload-alt"></i>
+					</div>
+				</ng-template>
+			</p-fileUpload>
+		</div>
+	</div>
+
+</app-window>

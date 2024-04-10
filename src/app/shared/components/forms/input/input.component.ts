@@ -45,6 +45,7 @@ import { TranslocoModule } from '@ngneat/transloco';
 export class InputComponent implements ControlValueAccessor, Validator {
 	@Input() type: string = "text";
 	@Input() label: string = "";
+	@Input() translate: string = "";
 	@Input() placeholder: string = "";
 	@Input() id: string = "";
 	@Input() controlName: string = "";
@@ -53,7 +54,7 @@ export class InputComponent implements ControlValueAccessor, Validator {
 	@Input() value?: any;
 	@Output() valueChange: EventEmitter<string> = new EventEmitter<string>();
 
-	public error: boolean = false;
+	@Input() error: boolean = false;
 
 	public valueEmit(): void {
 		this.valueChange.emit(this.value);

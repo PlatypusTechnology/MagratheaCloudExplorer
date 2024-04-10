@@ -1,0 +1,18 @@
+.item-row {
+	border-bottom: 1px solid #AAA;
+	height: 60px;
+
+	&:hover {
+		background-color: #EEE;
+		cursor: pointer;
+	}
+}
+
+.item-name, .item-size {
+	padding-top: 20px;
+
+	i {
+		margin-right: 10px;
+		font-size: 20px;
+	}
+}

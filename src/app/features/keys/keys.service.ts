@@ -41,6 +41,10 @@ export class KeysService {
 		return this.api.getById(id)
 			.pipe(map(rs => this.getObjFromData(rs)));
 	}
+	public GetKeyByVal(val: string): Observable<iKey> {
+		return this.api.getByVal(val)
+			.pipe(map(rs => this.getObjFromData(rs)));
+	}
 
 	public Create(folder: string): Promise<boolean> {
 		return new Promise((resolve, reject) => {

@@ -99,10 +99,15 @@ export class BaseApi {
 		return this.ApiService
 			.deleteApi(url.get());
 	}
-	protected upload(url: UrlBuilder, payload: any): Observable<any> {
+	protected upload(url: UrlBuilder, file: any[], payload: any): Observable<any> {
 		return this.ApiService
-			.uploadApi(url.get(), payload);
+			.uploadApi(url.get(), file, payload);
 	}
+	protected download(url: UrlBuilder): Observable<any> {
+		return this.ApiService
+			.fileApi(url.get());
+	}
+
 
 
 }

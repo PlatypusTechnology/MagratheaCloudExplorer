@@ -1,0 +1,58 @@
+<app-window
+[loading]="loading"
+icon="fa-cogs"
+[showClose]="true"
+[collapsable]="true"
+[title]="title">
+	<span actions>
+		<a class="transition" (click)="refresh()">
+			<i class="fa fa-refresh"></i></a>
+	</span>
+	<div class="row">
+		<div class="col-sm-12">
+			<table class="table table-striped">
+				<tr *ngFor="let c of crawls">
+					<td>{{ c.status }}</td>
+					<td>
+						<app-button
+							*ngIf="c.status == 'Waiting'"
+							translate="keys.execute-crawl"
+							icon="fa-cog"
+							(action)="executeCrawl(c.id);"
+							[loading]="loading"
+						></app-button>
+						<app-button
+							*ngIf="c.status != 'Waiting'"
+							translate="keys.view-crawl-log"
+							icon="fa-clipboard-list"
+							(action)="viewReport(c.id)"
+							[loading]="loading"
+						></app-button>
+					</td>
+					<td>
+						{{ c.executed_at ? "executed at " + c.executed_at : "--" }}
+					</td>
+				</tr>
+			</table>
+		</div>
+	</div>
+
+	<div class="row">
+		<div class="offset-sm-8 col-sm-4">
+			<app-button
+				type="outline-primary"
+				icon="fa-cog"
+				[caption]="'new' | transloco: { object: 'Crawl' }"
+				(action)="newCrawl();"
+			></app-button>
+		</div>
+	</div>
+
+</app-window>
+
+<app-crawl-report 
+	#reporter
+	*ngIf="showReport"
+	[key]="key"
+	[crawlId]="reportId"
+></app-crawl-report>

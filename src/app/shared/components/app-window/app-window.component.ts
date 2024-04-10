@@ -1,5 +1,5 @@
 import { CommonModule } from '@angular/common';
-import { Component, Input, ViewEncapsulation } from '@angular/core';
+import { Component, EventEmitter, Input, Output, ViewEncapsulation } from '@angular/core';
 import { trigger, transition, animate, style } from '@angular/animations'
 import { NgbActiveModal, NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { PlatypusLoaderComponent } from '../platypus-loader/platypus-loader.component';
@@ -33,9 +33,11 @@ export class AppWindowComponent {
 	@Input() showClose: boolean = true;
 	@Input() collapsable: boolean = true;
 	@Input() loading: boolean = false;
+	@Input() hidden: boolean = false;
+	@Input() hideContent: boolean = false;
 
-	public hidden: boolean = false;
-	public hideContent: boolean = false;
+	@Output() onClose = new EventEmitter<any>();
+
 
 	constructor(
 		private activeModal: NgbActiveModal,
@@ -45,11 +47,16 @@ export class AppWindowComponent {
 	public expand = () => this.hideContent = false;
 	public collapse = () => this.hideContent = true;
 
+	public open() {
+		this.hidden = false;
+	}
+
 	public close() {
 		if (this.modal) {
 			this.activeModal.close();
 		} else {
 			this.hidden = true;
 		}
+		this.onClose.emit(true);
 	}
 }

@@ -1,0 +1,78 @@
+<app-window
+	#window
+	[loading]="loading"
+	icon="fa-info-circle"
+	[showClose]="true"
+	[collapsable]="item != null"
+	[hideContent]="!item"
+	[title]="'explorer.file-detail' | transloco">
+
+	<div class="row">
+		<div class="col-sm-2 item-icon">
+			<i [className]="getIcon()"></i>
+		</div>
+		<div class="col-sm-9 item-name">
+			{{ item?.name }}
+		</div>
+	</div>
+
+	<div class="row" *ngIf="loading">
+		<div class="col-sm-12">
+			<app-loading *ngIf="loading"></app-loading>
+		</div>
+	</div>
+
+	<div class="row" *ngIf="!loading">
+		<div class="col-sm-4 label">
+			{{ 'explorer.detail-size' | transloco }}
+		</div>
+		<div class="col-sm-4 val">
+			{{ getSize() }}
+		</div>
+		<div class="col-sm-4 val">
+			({{ data?.size }}b)
+		</div>
+
+		<div class="col-sm-4 label">#ID:</div>
+		<div class="col-sm-8 val">{{ data?.id }}</div>
+
+		<div class="col-sm-4 label">Type:</div>
+		<div class="col-sm-8 val">{{ data?.type }}</div>
+
+		<div class="col-sm-4 label">Mime:</div>
+		<div class="col-sm-8 val">{{ data?.mime }}</div>
+
+		<div class="col-sm-4 label">Filename:</div>
+		<div class="col-sm-8 val">{{ data?.filename }}</div>
+
+		<div class="col-sm-4 label">Extension:</div>
+		<div class="col-sm-8 val">.{{ data?.extension }}</div>
+
+		<div class="col-sm-4 label">Date:</div>
+		<div class="col-sm-8 val">{{ data?.sent_at | date }}</div>
+
+		<div class="col-sm-4 label">Downloads:</div>
+		<div class="col-sm-8 val">{{ data?.downloads }}</div>
+
+		<div class="col-sm-4 label">Comments:</div>
+		<div class="col-sm-8 val">{{ data?.comments ?? "-" }}</div>
+	</div>
+
+	<div class="row image-container" *ngIf="imageUrl">
+		<img
+			class="image-preview"
+			[src]="imageUrl"
+		/>
+	</div>
+
+	<div class="row actions" *ngIf="!loading">
+		<div class="col-sm-12">
+			<app-button
+				icon="fa-download"
+				translate="explorer.file-download"
+				(action)="download()"
+			></app-button>
+		</div>
+	</div>
+
+</app-window>

@@ -1,1 +1,54 @@
-<p>key-view works!</p>
+<div class="container-fluid">
+
+	<app-window
+		[loading]="loading"
+		icon="fa-key"
+		[showClose]="false"
+		[collapsable]="false"
+		[title]="title">
+		<div class="row">
+			<div class="col-sm-1">
+				<app-input
+					id="key.id"
+					type="disabled"
+					[label]="'keys.id' | transloco"
+					[value]="key?.id"
+				></app-input>
+			</div>
+			<div class="col-sm-5">
+				<app-input
+					id="key.val"
+					type="disabled"
+					[label]="'keys.val' | transloco"
+					[value]="key?.val"
+				></app-input>
+			</div>
+			<div class="col-sm-4">
+				<app-input
+					id="key.folder"
+					type="disabled"
+					translate="keys.folder"
+					[value]="key?.folder"
+				></app-input>
+			</div>
+			<div class="col-sm-2">
+				<app-input
+					id="key.created"
+					type="disabled"
+					[label]="'created_at' | transloco"
+					[value]="key?.created_at"
+				></app-input>
+			</div>
+		</div>
+	</app-window>
+
+	<br/>
+	<app-crawl-list
+		*ngIf="key?.val"
+		[key]="key!.val"
+	></app-crawl-list>
+
+
+	
+</div>
+<br/>

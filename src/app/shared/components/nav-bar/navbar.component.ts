@@ -79,6 +79,10 @@ export class NavbarComponent implements OnInit {
 		this.toaster.success(`key [${val}] copied to clipboard`);
 	}
 
+	public goHome() {
+		this.nav.goHome();
+	}
+
 	public navMyData() {
 		this.nav.myAccount();
 	}
@@ -89,6 +93,10 @@ export class NavbarComponent implements OnInit {
 
 	public navKeys() {
 		this.nav.keyHome();
+	}
+
+	public viewKey() {
+		this.nav.keyView();
 	}
 
 	public logout() {

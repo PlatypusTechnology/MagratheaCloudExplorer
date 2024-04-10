@@ -1,0 +1,33 @@
+<div class="row navigation-row">
+	<!--div class="col-sm-1 back-action">
+		<span
+			*ngIf="folders.length > 0 && !loading"
+			class="back-btn"
+			(click)="goBack()"
+			>
+			<i class="fa fa-backward"></i>
+		</span>
+		<app-loading *ngIf="loading"></app-loading>
+	</div-->
+	<div class="col-sm-12 nav-crumb">
+		<div class="crumb-div" (click)="goHome()">
+			<span class="folder-crumb folder-clickable">
+				<i class="fa fa-home"></i>
+			</span>
+			<span class="sep">/</span>
+		</div>
+		<div *ngFor="let f of folders; last as isLast" class="crumb-div">
+			<span
+				*ngIf="!isLast"
+				class="folder-crumb folder-clickable"
+				(click)="folderClick(f.id)"
+			>{{ f.name }}</span>
+			<span
+				*ngIf="isLast"
+				class="folder-crumb folder-last"
+			>{{ f.name }}</span>
+			<span class="sep">/</span>
+		</div>
+		<app-loading *ngIf="loading"></app-loading>
+	</div>
+</div>

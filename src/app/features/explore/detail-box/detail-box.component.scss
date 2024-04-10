@@ -1,0 +1,30 @@
+.item-icon {
+	margin-bottom: 20px;
+	text-align: right;
+	i {
+		font-size: 55px;
+		margin: 0 auto;
+	}	
+} 
+.item-name {
+	font-weight: bold;
+	font-size: 20px;
+	margin-bottom: 20px;
+}
+
+.label {
+	text-align: right;
+}
+
+.image-container {
+	margin-top: 20px;
+	text-align: center;
+	img.image-preview {
+		max-width: 100%;
+		margin: 0 auto;
+	}	
+}
+
+.actions {
+	margin-top: 20px;
+}

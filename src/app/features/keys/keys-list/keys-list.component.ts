@@ -58,6 +58,7 @@ export class KeysListComponent implements OnInit {
 
 	public clickKey(i: iKey): void {
 		this.service.selectKey(i);
+		this.nav.keyView();
 	}
 
 	public addNew(): void {

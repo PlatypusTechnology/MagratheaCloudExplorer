@@ -18,6 +18,7 @@
 	"edit": "Editing {{name}}",
 	"new": "New {{object}}",
 	"back": "Back",
+	"object-created": "{{object}} created!",
 
 	"comments": "Comments",
 	"id-title": "#ID",
@@ -31,6 +32,7 @@
 		"email-required": "Email is required",
 		"email-invalid": "Invalid email address",
 		"password-required": "Password is required",
+		"folder-name-empty": "Folder name cannot be empty",
 		"login-error": "Login error!"
 	},
 
@@ -65,11 +67,28 @@
 		"btn-gen-password": "Generate Password"
 	},
 
+	"explorer": {
+		"create-folder": "Create Folder",
+		"create-folder-btn": "Create",
+		"upload-file": "Upload File",
+		"folder-name": "Folder name",
+		"file-detail": "Details",
+		"file-download": "Download",
+		"detail-size": "Size:",
+		"driver-title": "Explore: "
+	},
+
 	"keys": {
 		"list-title": "Keys",
 		"id": "#ID",
 		"val": "API value",
-		"folder": "Media Folder"
+		"folder": "Media Folder",
+		"create-confirm": "Do you want to crawl this key?",
+		"crawl": "Crawl",
+		"crawls": "Crawls",
+		"crawl-log": "Crawling Log",
+		"view-crawl-log": "View Logs",
+		"execute-crawl": "Execute Crawl"
 	}
 
 }

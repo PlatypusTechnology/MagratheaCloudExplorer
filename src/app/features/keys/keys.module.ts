@@ -2,8 +2,6 @@ import { NgModule } from '@angular/core';
 import { RouterModule } from '@angular/router';
 import { KeysListComponent } from './keys-list/keys-list.component';
 import { KeyFormComponent } from './key-form/key-form.component';
-import { KeysApi } from './keys.api';
-import { KeysService } from './keys.service';
 import { routes } from './keys.routes';
 
 export const components = [

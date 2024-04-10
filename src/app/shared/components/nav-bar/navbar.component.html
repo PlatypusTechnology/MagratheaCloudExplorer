@@ -1,5 +1,5 @@
 <nav class="nav az-navbar fixed-top">
-	<a class="navbar-brand">
+	<a class="navbar-brand" (click)="goHome();">
 		<img src="assets/images/logo_top.png" alt="" class="d-md-block d-none">
 		<img src="assets/images/logo_top.png" alt="" class="d-md-none">
 	</a>
@@ -18,7 +18,7 @@
 							<small>{{user?.email}}</small>
 						</p>
 					</li>
-					<li class="key-info" *ngIf="keyVal" (click)="copyKey();">
+					<li class="key-info" *ngIf="keyVal" (click)="viewKey();">
 						<p>
 							{{ keyFolder }}
 							<small>{{ keyVal }}</small>

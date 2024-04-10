@@ -18,6 +18,7 @@ export class ButtonComponent implements OnInit {
 
 	@Input() type: string | null = null;
 	@Input() caption: string | null = null;
+	@Input() translate: string | null = null;
 	@Input() subcaption: string | null = null;
 	@Input() icon: string = "";
 	@Input() extraClass: any;
@@ -25,6 +26,7 @@ export class ButtonComponent implements OnInit {
 	@Output() action = new EventEmitter<any>();
 
 	public btclass: string[] = [];
+	public loadingClass: string = "";
 
 	constructor() {}
 
@@ -43,22 +45,22 @@ export class ButtonComponent implements OnInit {
 			case "save":
 				this.btclass.push('btn-success');
 				this.icon = 'fa-save';
-				this.caption = 'save';
+				this.translate = 'save';
 				break;
 			case "cancel":
 				this.btclass.push('btn-danger');
 				this.icon = 'fa-times-circle';
-				this.caption = 'cancel';
+				this.translate = 'cancel';
 				break;
 			case "load-more":
 				this.icon = 'fa-plus-square';
 				this.btclass.push('btn-primary');
-				this.caption = 'load-more';
+				this.translate = 'load-more';
 				break;
 			case "search":
 				this.icon = 'fa-search';
 				this.btclass.push('btn-secondary','btn-rounded');
-				this.caption = 'search';
+				this.translate = 'search';
 				break;
 
 			// styles:
@@ -67,6 +69,7 @@ export class ButtonComponent implements OnInit {
 				break;
 			case "outline-primary":
 				this.btclass.push('btn-outline-primary');
+				this.loadingClass = "";
 				break;
 			case "success":
 				this.btclass.push('btn-outline-success');
@@ -76,6 +79,7 @@ export class ButtonComponent implements OnInit {
 				break;
 			case "primary-outline":
 				this.btclass.push('btn-outline-primary');
+				this.loadingClass = "";
 				break;
 			default:
 				this.btclass.push('btn-outline-secondary');

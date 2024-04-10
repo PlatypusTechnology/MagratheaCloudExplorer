@@ -18,6 +18,10 @@ export class NavigationService {
 		this.router.navigate([this.pagesUrl]);
 	}
 
+	public explore(): void {
+		this.router.navigate([this.pagesUrl, "explore"]);
+	}
+
 	public goDev(): void {
 		this.router.navigate([this.pagesUrl, "dev"]);
 	}
@@ -42,8 +46,8 @@ export class NavigationService {
 	public keyHome(): void {
 		this.router.navigate([this.pagesUrl, "keys"]);
 	}
-	public keyView(keyId: string): void {
-		this.router.navigate([this.pagesUrl, "keys", "view", keyId]);
+	public keyView(): void {
+		this.router.navigate([this.pagesUrl, "keys", "view"]);
 	}
 	public keyNew(): void {
 		this.router.navigate([this.pagesUrl, "keys", "new"]);
