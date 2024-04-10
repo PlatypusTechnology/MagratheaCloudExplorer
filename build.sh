@@ -23,3 +23,4 @@ echo "  commit_author: \"$author\"," >> $output_file
 echo "  commit_date: \"$date\"," >> $output_file
 echo "  commit_line: \"$oneline\"" >> $output_file
 echo "}" >> $output_file
+
