@@ -5,5 +5,5 @@ export const environment: iEnv = {
 	dev: false,
 	production: true,
 	debug: false,
-	api: "https://api.animateka.platypusweb.com.br",
+	api: "https://api.cloud.paulovelho.com/",
 };
