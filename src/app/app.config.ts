@@ -22,9 +22,9 @@ export class AppConfig {
 
 	getMainConfig(): any {
 		return {
-			name: 'Animateka',
-			title: 'Animateka',
-			pageTitle: "Animateka Zoo Manager",
+			name: 'Explorer',
+			title: 'Magrathea Cloud',
+			pageTitle: "Magrathea Cloud",
 			version: '1.0.0',
 		};
 	}
